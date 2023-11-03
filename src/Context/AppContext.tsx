@@ -19,11 +19,10 @@ export interface AppStateInterface{
 interface AppStateContextInterface {
     appState: AppStateInterface;
     setAppState: Dispatch<SetStateAction<AppStateInterface>>;
-  }
-  
+}
 
 const initialState = {
-    apiKey: env.API_KEY,
+    apiKey: process.env.REACT_APP_API_KEY as string,
     currentTopicKey: "Read Me",
     topics: {
         "Read Me": {
