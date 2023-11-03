@@ -1,25 +1,25 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import HomePage from "./pages/HomePage";
+
+import env from "react-dotenv";
+import OpenAI from "openai";
+import { useAppState } from "./Context/AppContext";
+import NewChatForm from "./components/NewChatForm";
+import LogInForm from "./components/LogInForm";
+import StyledAlert from "./components/template/StyledAlert";
 
 function App() {
+  const appState = useAppState().appState;
+  const apiKey = appState.apiKey;
+  const openai = new OpenAI({apiKey: apiKey, dangerouslyAllowBrowser: true });
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <HomePage openai={openai}/>
+      <NewChatForm/>
+      <LogInForm/>
+      <StyledAlert/>
+    </>
   );
 }
 
