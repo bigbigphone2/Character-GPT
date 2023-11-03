@@ -1,6 +1,5 @@
 import { Dispatch, SetStateAction, createContext, useContext, useState } from "react";
 import { chatInterface, topicsInterface } from "../interface/Chat";
-import env from "react-dotenv";
 import { AlertColor } from "@mui/material";
 
 export interface AppStateInterface{

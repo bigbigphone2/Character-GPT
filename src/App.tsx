@@ -1,7 +1,6 @@
 import { useState } from "react";
 import HomePage from "./pages/HomePage";
 
-import env from "react-dotenv";
 import OpenAI from "openai";
 import { useAppState } from "./Context/AppContext";
 import NewChatForm from "./components/NewChatForm";
