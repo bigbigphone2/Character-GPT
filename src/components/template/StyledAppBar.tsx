@@ -23,6 +23,7 @@ export default function StyledAppBar(props: StyledAppBarProps) {
     const appState = useAppState().appState;
     const updateAppState = useAppState().setAppState;
 
+
     const handleOnClickNewChat = () => {
         updateAppState({...appState, isOpenNewChatForm: true} as AppStateInterface);
     };
@@ -42,7 +43,7 @@ export default function StyledAppBar(props: StyledAppBarProps) {
                         <MenuIcon />
                     </IconButton>
                     <Typography variant="h6" component="div" sx={{ flexGrow: 1, display:'flex', justifyContent: 'center' }}>
-                        New Chat
+                        {appState.currentTopicKey}
                     </Typography>
                     <IconButton color="inherit" onClick={()=>handleOnClickNewChat()}>
                         <AddIcon/>

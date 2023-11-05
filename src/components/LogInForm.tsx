@@ -47,11 +47,11 @@ const TextFieldCointainer = styled(Box)({
     // margin: '15px',
     width: '60%',
     color: Style.mainGrey,
-    borderBottom: `1px solid ${Style.secondaryColor}`,
+    borderBottom: `1px solid ${Style.mainGrey}`,
 })
 
 const StyledInputBase = styled(InputBase)({
-    width: '80%'
+    width: '80%',
 })
 
 const initialTopic = {
@@ -115,7 +115,7 @@ export default function LogInForm() {
                     </Button>
                 </TextFieldCointainer>
                 <Button onClick={()=>handleClose()} sx={{marginTop: '15px'}}>
-                    <Typography sx={{fontSize: '13px', borderBottom: `1px solid ${Style.secondaryColor}`, color: `${Style.secondaryColor}`}}>Skip</Typography>
+                    <Typography sx={{fontSize: '13px', borderBottom: `1px solid ${Style.mainGrey}`, color: `${Style.mainGrey}`}}>Skip</Typography>
                 </Button>
             </LogInFormContainer>
         </Dialog>

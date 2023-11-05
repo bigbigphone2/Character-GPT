@@ -4,6 +4,7 @@ import IconButton from '@mui/material/IconButton';
 
 import SendIcon from '@mui/icons-material/Send';
 import { useState } from 'react';
+import { Style } from '../../config/styleConfig';
 
 interface StyledTextFieldProps{
     onSubmit: any
@@ -34,6 +35,9 @@ export default function StyledTextField(props: StyledTextFieldProps) {
                 alignItems: 'center', 
                 width: '80%', 
                 maxWidth: 500, 
+                border: `1px solid ${Style.mainGrey}`,
+                borderRadius: '10px',
+                boxShadow: `${Style.mainShadow}`
             }}
             onKeyDown={(e)=>handleKeyPress(e)}    
         >

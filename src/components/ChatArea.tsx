@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import Box from '@mui/material/Box';
-import { Divider, List, styled } from '@mui/material';
+import { Divider, List, Typography, styled } from '@mui/material';
 
 import { Style } from '../config/styleConfig';
 import Chat from './utils/Chat';
@@ -42,6 +42,13 @@ const TextFieldAreaContainer = styled(Box)({
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'center',
+    paddingTop: '10px'
+})
+
+const Hint = styled(Typography)({
+    fontSize: '11px',
+    paddingTop: '10px',
+    textAlign: 'center'
 })
 
 interface ChatAreaProps{
@@ -129,6 +136,7 @@ export default function ChatArea(props: ChatAreaProps) {
             </ChatAreaInnerContainer>
             <TextFieldAreaContainer>
                 <StyledTextField onSubmit={handleSubmit}/>
+                <Hint>CharacterGPT can make mistakes. Consider checking important information.</Hint>
             </TextFieldAreaContainer>
         </ChatAreaContainer>
     );
