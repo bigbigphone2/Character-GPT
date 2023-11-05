@@ -10,6 +10,7 @@ import { Box, Button, InputBase, TextField } from '@mui/material';
 import { Style } from '../config/styleConfig';
 
 import ArrowCircleRightIcon from '@mui/icons-material/ArrowCircleRight';
+import { isValidOpenAiApiKey } from '../utils/OpenAI';
 
 const LogInFormContainer = styled(Box)({
     display: 'flex',
@@ -34,7 +35,7 @@ const Title = styled(Typography)({
 
 const SubTitle = styled(Typography)({
     fontSize: '15px', 
-    color: Style.mainGrey,
+    color: Style.mainBlack,
     marginTop: '5px'
     // fontWeight: 'bold'
 })
@@ -67,9 +68,11 @@ export default function LogInForm() {
     const {isOpenLogInForm} = appState;
     const [newApiKey, setNewApiKey] = useState<string>('');
 
-    const validation = () => {
+    const validation = async() => {
         if (! newApiKey)
             return {isValid: false , message: "Please insert a API key !"};
+        if (! await isValidOpenAiApiKey(newApiKey))
+            return {isValid: false , message: "The API key is invalid !"};
         return {isValid: true, message: ''};
     }
 
@@ -78,8 +81,8 @@ export default function LogInForm() {
         handleResetForm();
     };
 
-    const handleSubmit = () => {
-        const {isValid, message} = validation();
+    const handleSubmit = async() => {
+        const {isValid, message} = await validation();
         if (! isValid){
             setAppState({...appState, isOpenAlert: {
                 isOpen: true,

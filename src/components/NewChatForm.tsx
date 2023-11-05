@@ -40,7 +40,7 @@ const Title = styled(Typography)({
 
 const SubTitle = styled(Typography)({
     fontSize: '20px', 
-    color: Style.mainGrey,
+    color: Style.mainDarkGrey,
     marginTop: '5px'
     // fontWeight: 'bold'
 })
@@ -84,8 +84,12 @@ const TextFieldCointainer = styled(Box)({
 })
 
 const StyledInputBase = styled(InputBase)({
-    borderBottom: `1px solid ${Style.secondaryColor}`,
-    width: '40%'
+    borderBottom: `1px solid ${Style.mainGrey}`,
+    width: '40%',
+    textAlign: 'center',
+    '& input': {
+      textAlign: 'center',
+    },
 })
 
 const ButtonContainer = styled(Box)({
@@ -151,6 +155,7 @@ export default function NewChatForm() {
 
     const handleResetForm = () => {
         setNewTopicName('');
+        setCustomCharacterName('custom')
         setNewTopic(initialTopic);
     }
 

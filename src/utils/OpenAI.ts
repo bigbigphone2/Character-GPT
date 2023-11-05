@@ -62,6 +62,13 @@ export const sendMsgToOpenAI = async(openai: OpenAI, messages: openAIMessageInte
     return newChat;
 };
 
+export const isValidOpenAiApiKey = async(apiKey: string): Promise<boolean> =>  {
+    const openAi = new OpenAI({apiKey: apiKey, dangerouslyAllowBrowser: true });
+    let isValid = true;
+    await sendMsgToOpenAI(openAi, []).catch(()=> {isValid = false;});
+    return isValid;
+}
+
 // export const initialOpenAI = async(apiKey: string) : Promise<OpenAI>=> {
 //     const openAI = new OpenAI({apiKey: apiKey, dangerouslyAllowBrowser: true });
 //     await sendMsgToOpenAI(openAI, []).catch(()=> console.log('fail'))

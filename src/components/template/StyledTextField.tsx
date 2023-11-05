@@ -22,6 +22,8 @@ export default function StyledTextField(props: StyledTextFieldProps) {
     }
     
     const handleSubmit = ()=> {
+        if (! value)
+            return;
         onSubmit(value);
         setValue("");
     };

@@ -6,6 +6,7 @@ export const Style = {
     'mainGrey': '#d9d9e3',
     'mainRed': '#e42744',
     'mainGreen': '#3e9b31',
+    'mainDarkGrey': '#a5a5ad',
     'mainLightGrey': '#9a9999',
     'mainShadow': 'rgb(0 0 0 / 15%) 0px 4px 24px',
 }
