@@ -30,7 +30,7 @@ export default function StyledButton({children, onClick}: StyledButtonInterface)
     const handleOnClick = () => {
         setIsShowDoneIcon(true);
         onClick();
-        setInterval(()=> setIsShowDoneIcon(false), 1000);
+        setTimeout(()=> setIsShowDoneIcon(false), 1000);
     }
 
     // useEffect(()=>{
